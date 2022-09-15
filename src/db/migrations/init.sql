@@ -49,7 +49,7 @@ CREATE TABLE request_user (
 CREATE INDEX request_user_request_id_idx ON request_user (request_id);
 CREATE INDEX request_user_user_id_idx ON request_user (user_id);
 
-COMMENT ON TABLE request_user IS 'Отклики на зпросы';
+COMMENT ON TABLE request_user IS 'Отклики на запросы';
 COMMENT ON COLUMN request_user.request_user_id IS 'Первичный ключ';
 COMMENT ON COLUMN request_user.request_id IS 'Ид. запроса';
 COMMENT ON COLUMN request_user.user_id IS 'Ид. пользователя, который ответил на запрос';
