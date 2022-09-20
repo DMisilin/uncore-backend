@@ -1,0 +1,9 @@
+export const userId = {type: 'string', minLength: 30};
+export const typeId = {type: 'integer', minimum: 1};
+export const activityId = {type: 'integer', minimum: 1};
+export const title = {type: 'string', minLength: 3};
+export const description = {type: 'string', minLength: 10};
+export const countryId = {type: 'integer', minLength: 1};
+export const cityId = {type: 'integer', minLength: 1};
+export const status = {type: 'string', enum: ['created', 'approved', 'active', 'completed']};
+export const createDttm = {type: 'string'};
