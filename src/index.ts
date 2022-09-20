@@ -1,10 +1,14 @@
-import express from 'express';
+import log4js from 'log4js';
+import server from './server';
+import Config from './config/index';
 
-const app = express();
-const PORT = 8880;
+const logger = log4js.getLogger();
+const config = new Config();
+const port = config.appConfig().port;
+logger.level = config.appConfig().logLevel;
 
-app.get('/', (request, response) => {
-    response.send(`I'm a live!...`);
-})
+const starter = new server(logger, config).start(port)
+  .then(port => logger.info(`Running on port ${port}`))
+  .catch(error => logger.error(error));
 
-app.listen(PORT, () => console.log(`App was started on port: ${PORT}`));
+export default starter;

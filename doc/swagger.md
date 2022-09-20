@@ -2,17 +2,17 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
-  - description: Requests API
+  - description: Request API
     url: https://virtserver.swaggerhub.com/radarApp/Some/1.0.0
 info:
   version: "1.0.0"
   title: requests
-  description: The API for the Requests service
+  description: The API for the Request service
 paths:
   /create-request:
     post:
       tags:
-        - Requests
+        - Request
       operationId: create request
       description: create request
       responses:
@@ -26,7 +26,7 @@ paths:
   /get-requests:
     post:
       tags:
-        - Requests
+        - Request
       operationId: get requests
       description: return request by params
       responses:
@@ -40,7 +40,7 @@ paths:
   /modify-request:
     post:
       tags:
-        - Requests
+        - Request
       operationId: modify requests
       description: modify request by params
       responses:
