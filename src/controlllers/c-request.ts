@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import pool from '../db/pool';
 import { Logger } from "log4js";
 import Database from "../db/pool/db";
 import crypto from 'crypto';
@@ -13,20 +12,6 @@ class CRequest {
     this.db = db;
   }
 
-  public async getTest(request: Request, response: Response) {
-    try {
-      const client = await pool.connect();
-      const sql = "SELECT NOW()";
-      const { rows } = await client.query(sql);
-
-      client.release();
-
-      return response.status(200).send(rows);
-    } catch (error) {
-      return response.status(400).send(error);
-    }
-  }
-
   public createRequest = async (request: Request, response: Response) => {
     try {
       const result = await this.db.query('createRequest', {
@@ -35,8 +20,8 @@ class CRequest {
       });
 
       return response.send({data: result[0]});
-    } catch (error) {
-      return response.status(503).json(error);
+    } catch (error: any) {
+      response.status(503).send({error: error.message});
     }
   };
 
@@ -44,17 +29,17 @@ class CRequest {
     try {
       const result = await this.db.query('getRequests', request.body);
       return response.send({data: result});
-    } catch (error) {
-      return response.status(503).json(error);
+    } catch (error: any) {
+      response.status(503).send({error: error.message});
     }
   };
 
-  public modifyRequest = (request: Request, response: Response) => {
+  public modifyRequest = async (request: Request, response: Response) => {
     try {
-      console.log('lo_ol_line_21 --> : modifyRequest');
+      await this.db.query('modifyRequest', request.body);
       return response.send({data: {}});
-    } catch (error) {
-      return response.status(503).json(error);
+    } catch (error: any) {
+      response.status(503).send({error: error.message});
     }
   };
 }

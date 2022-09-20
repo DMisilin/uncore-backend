@@ -31,13 +31,6 @@ class Server {
   //   });
   // }
 
-  // private dbConnect() {
-  //   this.pool = new Database(this.logger, this.config);
-  //   this.pool.doConnect()
-  //     .then(() => this.logger.info(`Db connected`))
-  //     .catch(error => this.logger.error(`Db connection error: ${error.message}`));
-  // }
-
   private routerConfig() {
     this.app.use('/', router);
   }
