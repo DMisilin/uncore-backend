@@ -1,4 +1,5 @@
 import {
+  requestId,
   typeId,
   activityId,
   countryId,
@@ -7,10 +8,11 @@ import {
   createDttm,
 } from './proprties';
 
-const modifyRequests = {
+const modifyRequest = {
   type: 'object',
   required: ['requestId'],
   properties: {
+    requestId,
     typeId,
     activityId,
     countryId,
@@ -20,4 +22,4 @@ const modifyRequests = {
   }
 };
 
-export default modifyRequests;
+export default modifyRequest;
