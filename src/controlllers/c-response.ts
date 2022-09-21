@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Logger } from 'log4js';
 import Database from '../db/pool/db';
-import crypto from 'crypto';
+import { v4 as uuid4 } from 'uuid';
 
 class CResponse {
   private readonly logger: Logger;
@@ -16,7 +16,7 @@ class CResponse {
     try {
       const result = await this.db.query('createResponse', {
         ...request.body,
-        requestUserId: crypto.randomUUID(),
+        requestUserId: uuid4(),
       });
       response.send({data: result});
     } catch (error: any) {
