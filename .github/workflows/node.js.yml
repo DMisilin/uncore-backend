@@ -28,12 +28,25 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
+      
+      env:
+        PORT: 3003
+        LOG_LEVEL: debug
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: 5432
+        DB_NAME: radar_dev
+        DB_SCHEMA: radar_dev
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_MAX_CONNECTIONS: 20
+        DB_IDLE_TIMEOUT_MILLIS: 30000
+        
     - run: npm run start
     - name: SSH Remote Commands
       # You may pin to the exact commit or the version.
       # uses: appleboy/ssh-action@f9010ff7f1bbd7db1a0b4bab661437550cea20c0
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ SERVER_HOST }}
-        username: ${{ SERVER_USER }}
-        password: ${{ SERVER_PASSWORD }}
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASSWORD }}
