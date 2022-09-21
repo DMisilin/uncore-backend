@@ -21,3 +21,6 @@ dist/*
 
 # IDE files
 .idea/
+
+# Log file
+*.log

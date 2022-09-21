@@ -3,18 +3,16 @@ import bodyParser from 'body-parser';
 import router from './routers/router';
 // import pool from './db/pool';
 import Database from './db/pool/db';
-import { Logger } from "log4js";
+import loggerMiddleware from './middleware/logger-middleware';
 
 class Server {
   private app;
-  private readonly logger;
   private pool: Database | null;
 
-  constructor(logger: Logger, config: any) {
+  constructor() {
     this.app = express();
     this.config();
     this.routerConfig();
-    this.logger = logger;
     this.pool = null;
     // this.dbConnect();
   }
@@ -22,6 +20,7 @@ class Server {
   private config() {
     this.app.use(bodyParser.urlencoded({ extended:true }));
     this.app.use(bodyParser.json({ limit: '3mb' }));
+    this.app.use(loggerMiddleware);
   }
 
   // private dbConnect() {
