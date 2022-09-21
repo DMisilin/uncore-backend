@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Logger } from "log4js";
 import Database from "../db/pool/db";
-import crypto from 'crypto';
+import { v4 as uuid4 } from 'uuid';
 
 class CRequest {
   private readonly logger: Logger;
@@ -16,7 +16,7 @@ class CRequest {
     try {
       const result = await this.db.query('createRequest', {
         ...request.body,
-        requestId: crypto.randomUUID(),
+        requestId: uuid4(),
       });
 
       return response.send({data: result[0]});
