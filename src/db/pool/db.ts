@@ -42,7 +42,6 @@ class Database {
   }
 
   public async doConnect() {
-    console.log('lo_ol_line_45 --> this.pool: ', this.pool);
     await this.pool.connect(function (err) {
       if (err) throw new Error(err.message);
       console.log('Connected');

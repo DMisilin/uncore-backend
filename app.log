@@ -1,0 +1,22 @@
+[2022-09-21T16:40:08.608] [ERROR] default - Error
+[2022-09-21T16:41:12.913] [ERROR] default - Error
+[2022-09-21T16:41:39.100] [ERROR] default - Error
+[2022-09-21T16:41:43.725] [ERROR] default - Error
+[2022-09-21T16:41:43.727] [WARN] default - Warn
+[2022-09-21T16:41:43.730] [INFO] default - Running on port 3003
+[2022-09-21T16:41:48.944] [ERROR] default - Error
+[2022-09-21T16:41:48.945] [WARN] default - Warn
+[2022-09-21T16:41:48.949] [INFO] default - Running on port 3003
+[2022-09-21T16:42:03.777] [ERROR] default - Error
+[2022-09-21T16:42:03.780] [WARN] default - Warn
+[2022-09-21T16:42:03.784] [INFO] default - Running on port 3003
+[2022-09-21T16:42:14.678] [INFO] default - Running on port 3003
+[2022-09-21T16:42:46.049] [INFO] default - Running on port 3003
+[2022-09-21T16:43:17.280] [INFO] default - Running on port 3003
+[2022-09-21T16:43:20.376] [INFO] default - Request body: {"userId":"20c7ad36-ac21-463a-b05d-eb6b0a6d384c","countryId":2}
+[2022-09-21T16:43:29.475] [INFO] default - Running on port 3003
+[2022-09-21T16:43:31.746] [INFO] default - Request body: {"userId":"20c7ad36-ac21-463a-b05d-eb6b0a6d384c","countryId":2}
+[2022-09-21T16:45:07.958] [INFO] default - Running on port 3003
+[2022-09-21T16:45:11.159] [INFO] default - Request /get-requests body: {"userId":"20c7ad36-ac21-463a-b05d-eb6b0a6d384c","countryId":2}
+[2022-09-21T16:45:57.194] [INFO] default - Running on port 3003
+[2022-09-21T16:46:00.518] [INFO] default - Request '/get-requests', body: {"userId":"20c7ad36-ac21-463a-b05d-eb6b0a6d384c","countryId":2}
