@@ -1,12 +1,12 @@
-import server from './server';
-import Config from './config/index';
+import config from './config/index';
 import logger from './logger';
-
-const config = new Config();
 const port = config.appConfig().port;
 
-const starter = new server().start(port)
-  .then(port => logger.info(`Running on port ${port}`))
-  .catch(error => logger.error(error));
+import { createExpressServer } from 'routing-controllers';
+import { CreateRequest } from './controller/create-request';
 
-export default starter;
+const app = createExpressServer({
+  controllers: [CreateRequest],
+});
+
+app.listen(port, () => logger.info(`Running on port ${port}`));

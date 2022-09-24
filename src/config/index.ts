@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export default class Config {
+class Config {
   appConfig() {
     return {
       port: parseInt(process.env.PORT || '8000'),
@@ -23,3 +23,5 @@ export default class Config {
     };
   }
 }
+
+export default new Config();
