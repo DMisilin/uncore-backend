@@ -56,6 +56,7 @@ const queries = {
         request_id AS "requestId",
         user_id AS "userId",
         activity_id AS "activityId",
+        type_id AS "typeId",
         title,
         description,
         country_id AS "countryId",
